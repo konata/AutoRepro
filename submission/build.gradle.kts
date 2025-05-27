@@ -1,24 +1,15 @@
-plugins { id("com.android.security.autorepro.submission") }
-
-fun getSubprojects(): List<Project> {
-    // glob for gradle direct subprojects
-    return fileTree(projectDir) { include("*/build.gradle*") }
-        .map {
-            val path = projectDir.toPath().relativize(it.toPath().getParent())
-            val gradlePath = path.toString().replace('/', ':')
-            gradlePath
-        }
-        .filter({
-            // filter out self build.gradle*
-            !it.isEmpty()
-        })
-        .map { project(it) }
+plugins {
+    id("com.android.security.autorepro.submission")
+    id("org.jetbrains.kotlin.android") version "1.9.23" apply false
 }
 
-// NOTE! all AutoRepro dependencies must be subprojects
 dependencies {
     // Automatically add each subproject as an AutoRepro Test Resource
-    getSubprojects().forEach { testResource(it) }
+    fileTree(projectDir) { include("*/build.gradle*") }
+        .map { projectDir.toPath().relativize(it.toPath().parent).toString().replace('/', ':') }
+        .filter(String::isNotEmpty)
+        .map(::project)
+        .forEach(::testResource)
 }
 
 submission {
