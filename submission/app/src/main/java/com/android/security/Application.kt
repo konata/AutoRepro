@@ -43,14 +43,15 @@ class Tests {
       context.startActivity(Intent(context, PocActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
       InstrumentationRegistry.getInstrumentation().uiAutomation.dropShellPermissionIdentity()
     }
+
     Log.e("natsuki", "world")
-    assertTrue("result value should be one", value == 1 )
+    assertTrue("result value should be one", value == 100)
   }
 }
 
-class PocActivity: AppCompatActivity() {
-  override fun onCreate(savedInstanceState: Bundle?){
-    super.onCreate(savedInstanceState )
+class PocActivity : AppCompatActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
     sendBroadcast(Intent(Consts.BROADCAST_ACTION).putExtra(Consts.EXTRA_KEY, 100))
     verticalLayout {
       button("send broadcast back") {

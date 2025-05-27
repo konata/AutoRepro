@@ -29,6 +29,7 @@ android {
 appTest {}
 
 dependencies {
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
   implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
   implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
   implementation ("org.jetbrains.anko:anko-commons:0.10.8")
