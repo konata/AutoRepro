@@ -1,3 +1,5 @@
+import java.net.URI
+
 /*
  * Copyright 2024 The Android Open Source Project
  *
@@ -30,6 +32,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = URI("https://maven.aliyun.com/repository/public/")
+        }
+        maven {
+            url = URI("https://jitpack.io")
+        }
     }
 }
 
@@ -47,8 +55,7 @@ fileTree(rootDir) {
         include("submission/**/build.gradle*")
         // don't include subprojects from build directories
         exclude("**/build")
-    }
-    .forEach {
+    }.forEach {
         val path = rootDir.toPath().relativize(it.toPath().getParent())
         val gradlePath = ":${path.joinToString(":")}"
         include(gradlePath)
