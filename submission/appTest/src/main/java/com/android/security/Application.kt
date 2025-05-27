@@ -51,7 +51,7 @@ class Tests {
 class PocActivity: AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?){
     super.onCreate(savedInstanceState )
-    sendBroadcast(Intent(Consts.EXTRA_KEY).putExtra(Consts.EXTRA_KEY, 100))
+    sendBroadcast(Intent(Consts.BROADCAST_ACTION).putExtra(Consts.EXTRA_KEY, 100))
     verticalLayout {
       button("send broadcast back") {
         onClick {

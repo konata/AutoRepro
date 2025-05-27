@@ -16,9 +16,8 @@
 plugins {
   id("com.android.security.autorepro.apptest")
   id("com.android.application")
-  id("org.jetbrains.kotlin.android") version "1.9.23"
+  id("org.jetbrains.kotlin.android")
 }
-
 
 android {
   kotlinOptions {
@@ -31,8 +30,6 @@ appTest {}
 
 dependencies {
   implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
-  testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
-  implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
   implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
   implementation ("org.jetbrains.anko:anko-commons:0.10.8")
   implementation ("org.jetbrains.anko:anko-sdk27:0.10.8")
