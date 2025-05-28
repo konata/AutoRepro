@@ -11,16 +11,19 @@ import org.junit.runner.RunWith
 class Runner : NonRootSecurityTestCase() {
   object App {
     @Suppress("ConstPropertyName")
-    const val PackageName = "com.android.security.app_AutoReproPlaceholder"
+    private const val ProjectIdentifier = "app"
 
     @Suppress("ConstPropertyName")
     const val Instrumented = "com.android.security.Tests"
 
     @Suppress("ConstPropertyName")
-    const val Apk = "app_AutoReproPlaceholder.apk"
+    const val Method = "launch-and-wait-result"
 
     @Suppress("ConstPropertyName")
-    const val Method = "launch-and-wait-result"
+    const val PackageName = "com.android.security.${ProjectIdentifier}_AutoReproPlaceholder"
+
+    @Suppress("ConstPropertyName")
+    const val Apk = "${ProjectIdentifier}_AutoReproPlaceholder.apk"
   }
 
   @Test
